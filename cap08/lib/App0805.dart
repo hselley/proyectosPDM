@@ -4,13 +4,14 @@ import 'package:flutter/material.dart';
 import 'App08Main.dart';
 
 extension MoreMovieTitlePage on MovieTitlePageState {
-  static bool? _isFavorite;
+  static bool _isFavorite = false;
 
   goToDetailPage() async {
     _isFavorite = await Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => DetailPage(),
+        settings: RouteSettings(arguments: _isFavorite)
       ),
     ) ?? _isFavorite;
     /// Actualización de la pantalla mediante un setState vacío
@@ -44,6 +45,8 @@ extension MoreMovieTitlePage on MovieTitlePageState {
 
 extension MoreDetailPage on DetailPage {
   Widget buildDetailPageCore(context) {
+    final _argument = ModalRoute.of(context)?.settings.arguments ?? false;
+    final _isFavoriteArgument = _argument as bool;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
@@ -51,9 +54,11 @@ extension MoreDetailPage on DetailPage {
         SizedBox(height: 16.0,),
         ElevatedButton(
           onPressed: () {
-            Navigator.pop(context, true);
+            Navigator.pop(context, !_isFavoriteArgument);
           },
-          child: Text("Make it favorite!"),
+          child: Text(
+            _isFavoriteArgument ? 'Unfavorite this' : "Make it favorite"
+          ),
         )
       ],
     );
