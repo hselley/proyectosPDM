@@ -50,30 +50,11 @@ extension MoreMovieTitlePage on MovieTitlePageState {
   Widget buildTitlePageCore() {
     return ListView(
       children: [
-        ListTile(
-          title: Text('Casablanca'),
-          onTap: () => goToDetailPage('Casablanca'),
-        ),
-        ListTile(
-          title: Text('Citizen Kane'),
-          onTap: () => goToDetailPage('Citizen Kane'),
-        ),
-        ListTile(
-          title: Text('Fight Club'),
-          onTap: () => goToDetailPage('Fight Club'),
-        ),
-        ListTile(
-          title: Text('The Shawshank Redemption'),
-          onTap: () => goToDetailPage('The Shawshank Redemption'),
-        ),
-        ListTile(
-          title: Text('The Truman Show'),
-          onTap: () => goToDetailPage('The Truman Show'),
-        ),
-        ListTile(
-          title: Text('Eternal Sunshine of the Spotless Mind'),
-          onTap: () => goToDetailPage('Eternal Sunshine of the Spotless Mind'),
-        ),
+        for(var item in synopses.keys)
+          ListTile(
+            title: Text(item),
+            onTap: () => goToDetailPage(item),
+          ),
       ],
     );
   }
