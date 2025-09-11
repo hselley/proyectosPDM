@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-main() => runApp(App0309());
+main() {
+  runApp(App0309());
+}
 
 class App0309 extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -10,7 +12,7 @@ class App0309 extends StatelessWidget {
           title: Text("My First Image"),
         ),
         body: Center(
-          child: Image.asset('MyImage.png'),
+          child: Image.asset('assets/MyImage.png'),
         ),
       ),
     );
