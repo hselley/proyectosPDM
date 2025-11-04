@@ -6,7 +6,7 @@ import 'App09Main.dart';
 extension MyHomePageStateExtension on MyHomePageState {
   Animation getAnimation(AnimationController controller) {
     return Tween<double>(begin: 100.0, end: 500.0).animate(
-      CurvedAnimation(parent: controller, curve: Curves.slowMiddle),
+      CurvedAnimation(parent: controller, curve: Curves.elasticOut),
     )..addListener(() {
       setState(() {});
     });
