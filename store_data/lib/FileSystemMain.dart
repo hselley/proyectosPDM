@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 
+// En este ejemplo, se guarda el archivo en la ruta: /data/data/com.example.store_data/app_flutter/miarchivo.txt
+
 void main() {
   runApp(MyApp());
 }
